@@ -1,0 +1,42 @@
+---
+import type { MarkdownLayoutProps } from "astro";
+import "./post.css";
+import BaseHead from "../components/BaseHead.astro";
+import { Image } from "@astrojs/image/components";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+
+type Props = MarkdownLayoutProps<{
+  title: string;
+  date: string;
+  desciption: string;
+  img: string;
+}>;
+const { frontmatter } = Astro.props;
+---
+
+<style></style>
+
+<BaseHead title={frontmatter.title} description={frontmatter.desciption} />
+
+<header>
+  <Navbar />
+</header>
+<main class="relative">
+  <article class="article">
+    <div class="article__color"></div>
+    <h1 class="article__title">
+      {frontmatter.title}
+    </h1>
+    <span class="article__date">{frontmatter.date}</span>
+    <Image
+      width={1280}
+      height={540}
+      src={frontmatter.img}
+      alt="Preview article"
+      class="article__image"
+    />
+    <slot />
+  </article>
+</main>
+<Footer />

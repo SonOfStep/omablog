@@ -1,0 +1,26 @@
+---
+import CTA from "../components/CTA.astro";
+import PostsList from "../components/PostsList.astro";
+import Footer from "../components/Footer.astro";
+import Navbar from "../components/Navbar.astro";
+import BaseHead from "../components/BaseHead.astro";
+
+import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
+---
+
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body>
+    <header class="bg-gray-50">
+      <Navbar />
+    </header>
+    <main>
+      <CTA />
+      <PostsList />
+    </main>
+    <Footer />
+  </body>
+</html>

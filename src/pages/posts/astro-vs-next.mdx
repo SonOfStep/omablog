@@ -1,0 +1,71 @@
+---
+layout: "../../layouts/Post.astro"
+slug: "astro-vs-next"
+title: "Сравнение Astro и Next для React приложений"
+date: "May 10, 2022"
+description: "В этой статье сравнивается опыт разработчиков Astro и Next.js в создании невероятно быстрых веб-приложений."
+img: "/astrovsnest.jpg"
+---
+
+When choosing a framework for your web application, it is important to consider the developer experience that they offer. Both Astro and Next.js build on top of React to provide a streamlined development experience. They both have a small learning curve, meaning if you are already familiar with React, you can easily pick them up and get running. However, there is a different experience when building with Astro and Next.js: that’s what we’ll cover in this article.
+
+This article compares the developer experience between Astro and Next.js in building blazing-fast web applications. In this article, you will learn the basics of Astro and Next.js and a detailed comparison between the two React frameworks. For this article, you should be familiar with the basics of React (as Astro and Next.js are both React frameworks) and how to create components. Before we move into a detailed comparison, it is essential to have background knowledge on Astro and Next.js.
+
+## What is Astro
+
+Astro is a modern web framework built on top of React and a static site builder with little or no JavaScript for delivering blazing-fast, high-performance websites with a modern developer experience. It lets you build your websites using UI components from your favorite JavaScript UI frameworks like React, Svelte, Vue, etc.
+
+Astro websites are fully static websites with all the JavaScript code removed. However, when a component (e.g., Image carousels, dark and light mode) requires JavaScript code to run, Astro only loads that component and any required dependencies. The other site components continue to exist as static lightweight HTML. Astro’s [getting started](https://docs.astro.build/en/getting-started/) tutorial is excellent for getting started with Astro.
+
+## What is Next.js
+
+Next.js is an open-source React framework for creating server-rendered React applications with little to no configuration. It provides additional structure and features and handles the React tooling and configuration required for your application.
+
+Next.js can be used to solve standard application requirements such as routing, data fetching, and integrations. Next.js is built on top of React in a bid to build an easy-to-use development framework to reduce the hassle of creating full-fledged, SSR-friendly web applications and, overall, improve the end user and [developer experience](https://blog.logrocket.com/whats-new-in-next-js-10/). The Next.js [Getting Started](https://nextjs.org/learn/basics/getting-started) guide is a great place to learn about Next.js.
+
+## Perfomance
+
+Astro was built to create super-fast static sites leveraging the island architecture rather than single-page application architecture. This improves performance, provides a great user experience, and also helps with search engines when trying to rank your site.
+
+Next.js also supports static builds, but that is not the primary focus. Unlike Astro, Next.js focuses on enabling your React application with additional functionalities such as server-side rendering (SSR). Next.js offers a variety of different fetching methods, i.e., CSR (client side rendering), SSG (server side generation), SSR (server side rendering), and ISR (incremental static regeneration). Whether Astro or Next.js creates the faster web application depends on the use case.
+
+Next.js is best used for highly dynamic and image-heavy websites like dashboards because of its built-in image optimization. In contrast, Astro is best used for static websites like a portfolio or a personal blog.
+
+## Use cases
+
+- Simple static website: Although Next.js can be used to build static websites, Astro is more optimal for building static sites (Updates don’t need to reflect real time) because it adopts the Island architecture and partial hydration.
+- Large multi-user sites (published in real time): Since Server-Side Rendering (SSR) helps cater to different users based on authentication. You need to show unique content to logged-in users in websites like these, and Next.js and Astro will work just fine. Prior to this time (the time of writing), Next.js would have been a better choice, but since the announcement of experimental support for server-side rendering (SSR) in Astro, it can also compete.
+- Client-side single application: Both Astro and Next.js are ideal for client-side single-page websites
+
+## Server-Side Rendering
+
+Server-side rendering is a tool for scaling large websites and making them render faster. This basically works because it takes a client-side website and renders it to static HTML and CSS on the server. The HTML is generated in one case at build-time and then reused for each request. This is essential because applications rendered on the server side are SEO-friendly by default and super faster. After all, server-side rendering web frameworks reduces client load time. Next.js supports server-side rendering, and just recently, Astro announced experimental support for server-side rendering.
+
+## Ease of use
+
+As stated earlier, both frameworks have a small learning curve if you’re already familiar with React. They have very intuitive and informative documentation, and they are both easy to set up.
+
+- Create Astro App According to Astro’s documentation, create-astro is the fastest, easiest way to start a new Astro project from scratch. Once create-astro starts successfully, it provides a list of three templates to choose from. One of which is a starter template that will allow you to choose any additional framework that you’d like to include in your project. Refer here for a complete guide on creating a simple Astro application.
+- Create Next App The easiest way to bootstrap a Next.js application is to use the create-next-app command. It is a tool that uses a starter template. Refer here for a complete guide on creating a simple Next.js project.
+
+## Code splitting
+
+Code splitting enables you to ship the tiny amount of JavaScript necessary for a route and then lazy loads the rest of the components. Code splitting works by default in Astro and Next.js; they code-split based on page routes. Also, both frameworks have built-in routing for creating new pages.
+
+## Key take-aways
+
+Next.js supports Static Site Generation (SSG) and Server Side Rendering (SSR), while Astro only supports Static Site Generation (SSG) and Server Side Rendering (SSR).
+
+Although Astro and Next.js have different functionalities, they still share most things in common like SSR, SSG, easy learning curve, intuitive documentation, and easy to setup.
+
+Both frameworks support hot reloading for a faster development experience as well.
+
+While Next.js offers lazy loading, Astro supports multiple ways of loading components. This enables composing high-performance, component-driven UIs.
+
+Also, because Astro automatically removes unnecessary JavaScript and only sends essential JavaScript needed to run your web page, Astro websites load faster than Next.js websites.
+
+The choice has been relatively easy — Astro if you are building a static website that is super fast and where the content doesn’t often change, and Next.JS for websites with multiple users accessing and editing the content, image-heavy and complicated websites.
+
+## Conclusion
+
+In this blog post, we examined two famous React frameworks: Astro and Next.js. We compared them based on their performance, use cases, developer experience, and similarities. We also covered how to bootstrap a simple project with both frameworks. Both Astro and Next.js offer great functionalities for building scalable web applications, so picking one over another depends on your project.

@@ -1,0 +1,43 @@
+---
+import { Image, Picture } from "@astrojs/image/components";
+---
+
+<style>
+  .cta {
+    @apply overflow-hidden bg-gray-50 sm:grid sm:grid-cols-2;
+  }
+  .cta__margins {
+    @apply p-8 md:p-12 lg:px-16 lg:py-24;
+  }
+  .cta__container {
+    @apply mx-auto max-w-xl container text-center sm:text-left;
+  }
+  .cta__title {
+    @apply text-2xl font-bold text-gray-900 md:text-3xl;
+  }
+  .cta__text {
+    @apply hidden text-gray-500 md:mt-4 md:block;
+  }
+  .cta__btn {
+    @apply mt-4 md:mt-8 inline-block rounded bg-gray-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-200;
+  }
+</style>
+<section class="cta">
+  <div class="cta__margins">
+    <div class="cta__container">
+      <h2 class="cta__title">Разработка сайтов для Ваших идей</h2>
+      <p class="cta__text">
+        Своим клиентам предлагаю только современные технологии, с помощью
+        которых создаются быстрые и удобные сайты.
+      </p>
+      <button class="cta__btn">Подать заявку</button>
+    </div>
+  </div>
+  <Image
+    src="/codescreen.jpg"
+    alt="Screen with code"
+    width={960}
+    height={540}
+    background="#0339A6"
+  />
+</section>
