@@ -10,12 +10,13 @@ import image from "@astrojs/image";
 import mdx from "@astrojs/mdx";
 
 // https://astro.build/config
+import netlify from "@astrojs/netlify/functions";
+
+// https://astro.build/config
 export default defineConfig({
-  integrations: [
-    tailwind(),
-    image({
-      serviceEntryPoint: "@astrojs/image/sharp",
-    }),
-    mdx(),
-  ],
+  integrations: [tailwind(), image({
+    serviceEntryPoint: "@astrojs/image/sharp"
+  }), mdx()],
+  output: "server",
+  adapter: netlify()
 });
