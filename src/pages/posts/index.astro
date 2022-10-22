@@ -2,7 +2,7 @@
 import type { MarkdownLayoutProps } from "astro";
 import PostsList from "../../components/PostsList.astro";
 import BaseHead from "../../components/BaseHead.astro";
-import Navbar from "../../components/Navbar.astro";
+import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
 
 type Props = MarkdownLayoutProps<{
@@ -19,11 +19,12 @@ type Props = MarkdownLayoutProps<{
   title="OmaBlog. Список статей"
   description="На этой странице найдете статьи"
 />
-
-<header>
-  <Navbar />
-</header>
-<main class="relative">
-  <PostsList />
-</main>
-<Footer />
+<div class="min-h-screen dark:bg-gray-800 dark:text-gray-100">
+  <header>
+    <Header />
+  </header>
+  <main class="relative">
+    <PostsList />
+  </main>
+  <Footer />
+</div>

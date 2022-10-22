@@ -1,38 +1,13 @@
 ---
 ---
 
-<style>
-  .logo {
-    @apply inline-flex h-10 w-10 items-center justify-center rounded-lg bg-white;
-  }
-  .logo > .logo__text {
-    @apply sr-only;
-  }
-  .footer {
-    @apply bg-gray-50;
-  }
-  .footer__container {
-    @apply mx-auto max-w-screen-xl p-4;
-  }
-  .footer__columns {
-    @apply sm:flex sm:items-center sm:justify-between;
-  }
-  .footer__logo {
-    @apply flex justify-center sm:justify-start;
-  }
-  .footer__text {
-    @apply mt-4 text-center text-sm text-gray-500 lg:mt-0 lg:text-right;
-  }
-</style>
-
-<footer class="footer" aria-label="Подвал сайта">
-  <div class="footer__container">
-    <div class="footer__columns">
-      <div class="footer__logo">
-        <a href="/" class="logo">
-          <span class="logo__text">Logo</span>
+<footer class="" aria-label="Подвал сайта">
+  <div class="mx-auto container p-4">
+    <div class="sm:flex sm:items-center sm:justify-between">
+      <div class="flex justify-center sm:justify-start">
+        <a href="/" class="flex font-medium items-center mb-4 md:mb-0">
           <svg
-            class="h-8 w-8"
+            class="h-10 w-10 bg-white rounded-lg p-2 dark:invert"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 211.667 211.667"
           >
@@ -51,9 +26,12 @@
               d="m105.833 158.75 52.917-52.916 52.916 52.916-52.916 52.917z"
             ></path>
           </svg>
+          <span class="ml-3 text-xl">OmaBlog</span>
         </a>
       </div>
-      <p class="footer__text">Copyright &copy; 2022. All rights reserved.</p>
+      <p class="mt-4 text-center text-sm text-gray-500 lg:mt-0 lg:text-right">
+        Copyright &copy; 2022. All rights reserved.
+      </p>
     </div>
   </div>
 </footer>
