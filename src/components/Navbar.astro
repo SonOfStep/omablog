@@ -2,92 +2,33 @@
 interface ILink {
   title: string;
   url: string;
-  isExternal?: boolean;
 }
 const links: ILink[] = [
   { title: "Главная", url: "/" },
-  { title: "Блог", url: "/posts/" },
-  {
-    title: "External",
-    url: "https://emojipedia.org/waving-hand/",
-    isExternal: true,
-  },
+  { title: "Блог", url: "/posts" },
+  { title: "XP", url: "/" },
 ];
 ---
 
-<style>
-  .navbar__container {
-    @apply mx-auto flex max-w-screen-xl items-center justify-between p-4;
-  }
-  .logo {
-    @apply inline-flex h-10 w-10 items-center justify-center rounded-lg bg-white;
-  }
-  .logo > .logo__text {
-    @apply sr-only;
-  }
-  .menu {
-    @apply flex items-center gap-2 text-sm font-medium text-gray-500;
-  }
-  .menu__link {
-    @apply rounded-lg px-3 py-2;
-  }
-  .menu__link--external {
-    @apply rounded-lg px-3 py-2 inline-flex items-center;
-  }
-</style>
+<nav class="flex flex-wrap items-center text-base justify-center gap-x-5">
+  {links.map((link) => <a href={link.title}>{link.title}</a>)}
 
-<nav aria-label="Навигация сайта" class="navbar">
-  <div class="navbar__container">
-    <a href="/" class="logo">
-      <span class="logo__text">Logo</span><svg
-        class="h-8 w-8"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 211.667 211.667"
-      >
-        <path
-          fill="#8e37c9"
-          d="m0 158.75 52.916-52.917 52.917 52.917-52.917 52.916z"></path>
-        <path
-          fill="#396cc8"
-          d="m52.916 105.833 52.917-52.916 52.916 52.916-52.916 52.917z"></path>
-        <path
-          fill="#583ccb"
-          d="M105.833 52.916 158.75 0l52.916 52.916-52.916 52.917z"></path>
-        <path
-          fill="#edcc3b"
-          d="m105.833 158.75 52.917-52.916 52.916 52.916-52.916 52.917z"></path>
-      </svg>
-    </a>
-
-    <ul class="menu">
-      {
-        links.map((link) => (
-          <li>
-            <a
-              href={link.url}
-              class={link.isExternal ? "menu__link--external" : "menu__link"}
-            >
-              {link.title}{" "}
-              {link.isExternal && (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  class="ml-1.5 h-4 w-4"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"
-                  />
-                </svg>
-              )}
-            </a>
-          </li>
-        ))
-      }
-    </ul>
-  </div>
+  <button
+    class="inline-flex items-center bg-black/20 border-0 p-2 hover:bg-black/10 rounded mt-4 md:mt-0"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="currentColor"
+      class="w-6 h-6"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"
+      ></path>
+    </svg>
+  </button>
 </nav>
