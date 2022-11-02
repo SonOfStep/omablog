@@ -7,7 +7,6 @@ const ThemeToggle = () => {
 
   const handleClick = () => {
     setTheme((state) => (state === "dark" ? "light" : "dark"));
-    console.log("THeme", theme);
   };
 
   useEffect(() => {

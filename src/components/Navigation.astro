@@ -1,5 +1,16 @@
 ---
+import ThemeToggle from "./ThemeToggle";
 ---
+
+<script>
+  function toggleMode() {
+    const isDark = localStorage.getItem("theme") !== "light";
+    isDark && document.documentElement.classList.add("dark");
+    !isDark && document.documentElement.classList.remove("dark");
+  }
+
+  toggleMode();
+</script>
 
 <script>
   function uncheckTogglerMenu() {
@@ -11,11 +22,14 @@
 
   window.onresize = uncheckTogglerMenu;
 </script>
+
 <!-- NAVIGATION -->
 <nav class="">
   <!-- BUTTON TOGGLER -->
   <label for="toggler" class="block cursor-pointer sm:hidden">
-    <button class="bg-button text-button-text p-3 rounded pointer-events-none">
+    <button
+      class="bg-button text-button-text dark:bg-light-button p-3 rounded pointer-events-none"
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
@@ -36,7 +50,7 @@
   <!-- MENU -->
   <div
     id="menu"
-    class="hidden peer-checked:flex peer-checked:absolute peer-checked:inset-x-0 peer-checked:top-full peer-checked:py-4 sm:flex sm:flex-row items-center gap-4 flex-col p-0"
+    class="hidden peer-checked:flex peer-checked:absolute peer-checked:inset-x-0 peer-checked:top-full peer-checked:py-4 sm:flex sm:flex-row items-center gap-4 flex-col p-0 bg-background dark:bg-light-background sm:bg-none"
   >
     <ul class="flex items-center gap-4 flex-col sm:flex-row">
       <li><a href="#">Главная</a></li>
@@ -44,21 +58,6 @@
       <li><a href="#">Обо мне</a></li>
       <li><a href="#">Обратная связь</a></li>
     </ul>
-    <button class="bg-button text-button-text p-3 rounded">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 20 20"
-        class="w-6 h-6"
-      >
-        <path
-          stroke="currentColor"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M18.354 13.354A9 9 0 0 1 6.646 1.646 9.003 9.003 0 0 0 10 19a9.003 9.003 0 0 0 8.354-5.646Z"
-        ></path>
-      </svg>
-    </button>
+    <ThemeToggle client:load />
   </div>
 </nav>
