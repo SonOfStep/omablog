@@ -1,0 +1,29 @@
+---
+import { Image } from "@astrojs/image/components";
+import type { IPost } from "../pages/index.astro";
+import Time from "./Time.astro";
+
+interface Props
+  extends Pick<IPost, "title" | "date" | "description" | "imgSrc"> {}
+const { title, date, description, imgSrc } = Astro.props;
+---
+
+<article
+  class="flex-1 bg-background-secondary dark:bg-light-background-secondary flex gap-6 flex-wrap"
+>
+  <Image
+    class={"flex-1 aspect-auto object-cover"}
+    src={imgSrc}
+    alt=""
+    width={720}
+    height={465}
+    background={"#94A1B2"}
+  />
+  <div class="space-y-6 px-2 mb-6 mt-0 sm:mt-6 flex-1 min-w-[200px]">
+    <h3 class="text-headline dark:text-light-headline text-2xl font-bold">
+      {title}
+    </h3>
+    <Time date={date} />
+    <p>{description}</p>
+  </div>
+</article>

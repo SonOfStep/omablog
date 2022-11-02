@@ -1,0 +1,12 @@
+---
+interface Props {
+  date: Date;
+  class?: string;
+}
+
+const props = Astro.props;
+---
+
+<time class={props["class"]} datetime={new Date().toString()}
+  >{new Intl.DateTimeFormat("ru-RU").format(props["date"])}</time
+>

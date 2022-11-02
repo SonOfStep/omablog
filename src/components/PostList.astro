@@ -1,0 +1,27 @@
+---
+import { Image } from "@astrojs/image/components";
+import type { IPost } from "../pages/index.astro";
+import PostCard from "./PostCard.astro";
+
+interface Props {
+  posts: IPost[];
+}
+
+const { posts } = Astro.props;
+
+const firstPost: IPost = posts[0];
+const otherPosts: IPost[] = posts.filter((_, index) => index !== 0);
+---
+
+<section class="space-y-6">
+  {posts.length ? <PostCard {...firstPost} /> : <p>Упс. Статей пока нет!</p>}
+  {
+    posts.length && (
+      <div class="flex gap-6 flex-wrap">
+        {otherPosts.map((post) => (
+          <PostCard {...post} />
+        ))}
+      </div>
+    )
+  }
+</section>
