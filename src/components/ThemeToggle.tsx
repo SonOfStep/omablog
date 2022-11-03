@@ -21,6 +21,7 @@ const ThemeToggle = () => {
     <button
       onClick={handleClick}
       className="inline-flex items-center bg-black/20 border-0 p-2 hover:bg-black/10 rounded mt-4 md:mt-0"
+      aria-label="Toggle theme mode"
     >
       {theme === "light" ? (
         <svg
