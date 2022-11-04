@@ -1,0 +1,23 @@
+---
+import Footer from "../components/Footer.astro";
+import Head from "../components/Head.astro";
+import Header from "../components/Header.astro";
+import Logo from "../components/Logo.astro";
+import Navigation from "../components/Navigation.astro";
+import PostList from "../components/PostList.astro";
+import Wrapper from "../components/Wrapper.astro";
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <Head title={"Все посты"} />
+  <body
+    class="bg-background text-paragraph dark:bg-light-background dark:text-light-paragraph font-roboto"
+  >
+    <Wrapper>
+      <Header />
+      <PostList posts={[]} />
+      <Footer />
+    </Wrapper>
+  </body>
+</html>
