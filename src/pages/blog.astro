@@ -2,10 +2,25 @@
 import Footer from "../components/Footer.astro";
 import Head from "../components/Head.astro";
 import Header from "../components/Header.astro";
-import Logo from "../components/Logo.astro";
-import Navigation from "../components/Navigation.astro";
 import PostList from "../components/PostList.astro";
 import Wrapper from "../components/Wrapper.astro";
+import type { IPost } from "./index.astro";
+
+interface Frontmatter {
+  title: string;
+  description: string;
+  imgSrc: string;
+  date: string;
+}
+
+const foundedPosts = await Astro.glob<Frontmatter>("./posts/*.md");
+const posts: IPost[] = foundedPosts.map((post, index) => ({
+  id: index,
+  title: post.frontmatter.title,
+  description: post.frontmatter.description,
+  imgSrc: post.frontmatter.imgSrc,
+  date: post.frontmatter.date,
+}));
 ---
 
 <!DOCTYPE html>
@@ -16,8 +31,9 @@ import Wrapper from "../components/Wrapper.astro";
   >
     <Wrapper>
       <Header />
-      <PostList posts={[]} />
+      <PostList posts={posts} />
       <Footer />
     </Wrapper>
-  </body>
+
+    [x: string]: any; title: any;</body>
 </html>

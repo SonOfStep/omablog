@@ -6,10 +6,17 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import Wrapper from "../components/Wrapper.astro";
 
-export interface IPost {
-  id: number;
+interface Frontmatter {
   title: string;
-  date: Date;
+  description: string;
+  imgSrc: string;
+  date: string;
+}
+export interface IPost {
+  id?: number;
+  slug?: string;
+  title: string;
+  date: Date | string;
   description: string;
   imgSrc: string;
 }
@@ -20,32 +27,14 @@ export interface IWork {
   altText: string;
 }
 
-const posts: IPost[] = [
-  {
-    id: 0,
-    title: "Роторная легенда Mazda RX-7",
-    date: new Date(1660000000000),
-    description:
-      "Среди серий японского спорткара Mazda RX-7 FD3особо ценится третье поколение. Машины этой серии выпускались с 1991 г. В период между 1993 и 1999 гг. они подверглись пяти модификациям. Это были первые, серийные автомобили с двойным последовательным турбонаддувом. Он идеально дополнял легкий роторный мотор",
-    imgSrc: "/images/mazda-rx7.webp",
-  },
-  {
-    id: 1,
-    title: "Toyota Mark II для дрифта",
-    date: new Date(1661000000000),
-    description:
-      "Серия Toyota Mark II пополнила список легендарных автомобилей Японии 90-х благодаря турбированным модификациям седьмого поколения, выпускаемого с 1992 по 1996 год, а также восьмого 1996-2000 год производства. Особую популярность получили дрифт кары Toyota Mark II JZX-100 и JZX-90, которые и сейчас пользуются спросом среди автолюбителей",
-    imgSrc: "/images/toyota-mark-II.webp",
-  },
-  {
-    id: 2,
-    title: "Стильный Nissan 240SX",
-    date: new Date(1662000000000),
-    description:
-      "В 90-х наибольшую популярность получило спортивное купе Nissan 240SX шестого поколения, выпускаемое в период с 1993 по 2000 год. Серия отличалась круглыми формами с чертами агрессивного спортивного автомобиля, рассчитанного на тех, кто предпочитает активный образ жизни. Стильное купе можно увидеть в фильме «Форсаж-4»",
-    imgSrc: "/images/nissan-240sx.webp",
-  },
-];
+const foundedPosts = await Astro.glob<Frontmatter>("./posts/*.md");
+const posts: IPost[] = foundedPosts.map((post, index) => ({
+  id: index,
+  title: post.frontmatter.title,
+  description: post.frontmatter.description,
+  imgSrc: post.frontmatter.imgSrc,
+  date: post.frontmatter.date,
+}));
 
 const works: IWork[] = [
   {
