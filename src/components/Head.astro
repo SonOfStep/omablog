@@ -1,0 +1,23 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OmaBlog{!title && ` | ${title}`}</title>
+  <meta
+    name="description"
+    content={!!description ? "Блог Web-разработчика" : description}
+  />
+  <!-- FAVICON -->
+  <link rel="shortcut icon" href="images/logo.svg" />
+  <!-- STYLES -->
+  <link rel="stylesheet" href="styles/main.css" />
+</head>
