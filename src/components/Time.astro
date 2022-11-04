@@ -1,12 +1,14 @@
 ---
 interface Props {
-  date: Date;
+  date: Date | string;
   class?: string;
 }
 
 const props = Astro.props;
+
+const parseDate = new Date(props.date);
+const outputDate = new Intl.DateTimeFormat("ru-RU").format(parseDate.getTime());
+const datetime = parseDate.toString();
 ---
 
-<time class={props["class"]} datetime={new Date().toString()}
-  >{new Intl.DateTimeFormat("ru-RU").format(props["date"])}</time
->
+<time class={props["class"]} datetime={datetime}>{outputDate}</time>
