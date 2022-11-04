@@ -14,9 +14,20 @@ const otherPosts: IPost[] = posts.filter((_, index) => index !== 0);
 ---
 
 <section class="space-y-6">
-  {posts.length ? <PostCard {...firstPost} /> : <p>Упс. Статей пока нет!</p>}
   {
-    posts.length && (
+    posts.length ? (
+      <PostCard {...firstPost} />
+    ) : (
+      <div class="flex flex-col items-center gap-6">
+        <span class="text-6xl">🤷</span>
+        <span class="mx-auto font-bold text-3xl text-headline dark:text-light-headline ">
+          Упс. Статей пока нет!
+        </span>
+      </div>
+    )
+  }
+  {
+    !!posts.length && (
       <div class="flex gap-6 flex-wrap">
         {otherPosts.map((post) => (
           <PostCard {...post} />

@@ -17,9 +17,21 @@ import react from "@astrojs/react";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [tailwind(), image({
-    serviceEntryPoint: "@astrojs/image/sharp"
-  }), mdx(), react()],
+  integrations: [
+    tailwind(),
+    image({
+      serviceEntryPoint: "@astrojs/image/sharp",
+    }),
+    mdx(),
+    react(),
+  ],
   output: "server",
-  adapter: netlify()
+  adapter: netlify(),
+
+  markdown: {
+    shikiConfig: {
+      theme: "nord",
+      wrap: true,
+    },
+  },
 });
