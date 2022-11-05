@@ -52,6 +52,16 @@ const { frontmatter } = Astro.props;
   .post :global(h3) {
     @apply text-xl;
   }
+  .post :global(ol) {
+    @apply list-decimal;
+  }
+  .post :global(ul) {
+    @apply list-disc;
+  }
+  .post :global(ol),
+  .post :global(ul) {
+    @apply ml-4;
+  }
 </style>
 
 <Head title={"Все посты"} />

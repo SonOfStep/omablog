@@ -1,29 +1,31 @@
 ---
 import { Image } from "@astrojs/image/components";
-import type { IPost } from "../pages/index.astro";
+import type { Post } from "../types/Post";
 import Time from "./Time.astro";
 
 interface Props
-  extends Pick<IPost, "title" | "date" | "description" | "imgSrc"> {}
-const { title, date, description, imgSrc } = Astro.props;
+  extends Pick<Post, "title" | "date" | "description" | "imgSrc"> {}
+const { title, date, description, imgSrc, url } = Astro.props;
 ---
 
 <article
-  class="flex-1 bg-background-secondary dark:bg-light-background-secondary flex gap-6 flex-wrap overflow-hidden group hover:shadow-md hover:shadow-button transition ease-in"
+  class="flex-1 bg-background-secondary dark:bg-light-background-secondaryoverflow-hidden group hover:shadow-md hover:shadow-button transition ease-in"
 >
-  <Image
-    class={"preview flex-1 aspect-auto object-cover shadow-2xl transition ease-in group-hover:scale-[1.01]"}
-    src={imgSrc}
-    alt=""
-    height={300}
-    aspectRatio={16 / 9}
-    background={"#94A1B2"}
-  />
-  <div class="space-y-6 px-2 mb-6 mt-0 sm:mt-6 flex-1 min-w-[200px]">
-    <h2 class="text-headline dark:text-light-headline text-2xl font-bold">
-      {title}
-    </h2>
-    <Time date={date} />
-    <p>{description}</p>
-  </div>
+  <a href={url} class="flex-1 flex gap-6 flex-wrap">
+    <Image
+      class={"preview flex-1 aspect-auto object-cover shadow-2xl transition ease-in group-hover:scale-[1.01]"}
+      src={imgSrc}
+      alt=""
+      height={300}
+      aspectRatio={16 / 9}
+      background={"#94A1B2"}
+    />
+    <div class="space-y-6 px-2 mb-6 mt-0 sm:mt-6 flex-1 min-w-[200px]">
+      <h2 class="text-headline dark:text-light-headline text-2xl font-bold">
+        {title}
+      </h2>
+      <Time date={date} />
+      <p>{description}</p>
+    </div>
+  </a>
 </article>

@@ -1,16 +1,15 @@
 ---
-import { Image } from "@astrojs/image/components";
-import type { IPost } from "../pages/index.astro";
+import type { Post } from "../types/Post";
 import PostCard from "./PostCard.astro";
 
 interface Props {
-  posts: IPost[];
+  posts: Post[];
 }
 
 const { posts } = Astro.props;
 
-const firstPost: IPost = posts[0];
-const otherPosts: IPost[] = posts.filter((_, index) => index !== 0);
+const firstPost = posts[0];
+const otherPosts = posts.filter((_, index) => index !== 0);
 ---
 
 <section class="space-y-6">

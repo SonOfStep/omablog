@@ -5,21 +5,9 @@ import FormFeedback from "../components/FormFeedback.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import Wrapper from "../components/Wrapper.astro";
+import type { Post } from "../types/Post";
 
-interface Frontmatter {
-  title: string;
-  description: string;
-  imgSrc: string;
-  date: string;
-}
-export interface IPost {
-  id?: number;
-  slug?: string;
-  title: string;
-  date: Date | string;
-  description: string;
-  imgSrc: string;
-}
+interface Frontmatter extends Post {}
 
 export interface IWork {
   id: number;
@@ -28,12 +16,13 @@ export interface IWork {
 }
 
 const foundedPosts = await Astro.glob<Frontmatter>("./posts/*.md");
-const posts: IPost[] = foundedPosts.map((post, index) => ({
+const posts: Post[] = foundedPosts.map((post, index) => ({
   id: index,
   title: post.frontmatter.title,
   description: post.frontmatter.description,
   imgSrc: post.frontmatter.imgSrc,
   date: post.frontmatter.date,
+  url: post.url,
 }));
 
 const works: IWork[] = [

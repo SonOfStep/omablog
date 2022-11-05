@@ -4,7 +4,7 @@ import Head from "../components/Head.astro";
 import Header from "../components/Header.astro";
 import PostList from "../components/PostList.astro";
 import Wrapper from "../components/Wrapper.astro";
-import type { IPost } from "./index.astro";
+import type { Post } from "../types/Post";
 
 interface Frontmatter {
   title: string;
@@ -14,12 +14,12 @@ interface Frontmatter {
 }
 
 const foundedPosts = await Astro.glob<Frontmatter>("./posts/*.md");
-const posts: IPost[] = foundedPosts.map((post, index) => ({
-  id: index,
+const posts: Post[] = foundedPosts.map((post, index) => ({
   title: post.frontmatter.title,
   description: post.frontmatter.description,
   imgSrc: post.frontmatter.imgSrc,
   date: post.frontmatter.date,
+  url: post.url,
 }));
 ---
 
