@@ -1,52 +1,65 @@
 ---
-
+import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import AvatarImage from "../assets/lego-man.avif";
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap"
-      rel="stylesheet"
-    />
-    <meta name="generator" content={Astro.generator} />
-    <title>OmaBlog</title>
-  </head>
-  <body class="text-obsidian">
-    <nav
-      class="flex items-center justify-between h-20 group active-menu"
-      id="navigation-menu"
-    >
-      <div class="z-10">
-        <a class="font-medium text-xl group/logo" href="/"
-          ><span class="group-hover/logo:text-brick">Oma</span>Blog</a
-        >
-      </div>
+<Layout>
+  <nav
+    class="flex items-center justify-between h-20 group container mx-auto px-4 max-w-6xl"
+    id="navigation-menu"
+  >
+    <div class="z-10">
+      <a class="font-medium text-xl group/logo" href="/">
+        <span class="group-hover/logo:text-brick">Oma</span>Blog
+      </a>
+    </div>
 
-      <ul
-        class="md:flex hidden justify-center items-center gap-10 group-[.active-menu]:flex group-[.active-menu]:bg-brick group-[.active-menu]:fixed group-[.active-menu]:pt-20 group-[.active-menu]:inset-0 group-[.active-menu]:flex-col"
+    <ul
+      class="md:flex hidden justify-center items-center gap-4 md:gap-10 group-[.active-menu]:flex group-[.active-menu]:bg-ocean group-[.active-menu]:fixed group-[.active-menu]:pt-20 group-[.active-menu]:inset-0 group-[.active-menu]:flex-col"
+    >
+      {
+        [
+          { title: "Home", link: "/" },
+          { title: "Works", link: "/works" },
+          { title: "Blog", link: "/posts" },
+          { title: "Contact", link: "/contact" },
+        ].map(({ title, link }) => (
+          <li class="font-medium text-xl">
+            <a href={link}>{title}</a>
+          </li>
+        ))
+      }
+    </ul>
+    <div id="menu-icon" class="md:hidden z-10">Menu</div>
+  </nav>
+
+  <header
+    class="container px-4 py-8 mx-auto min-h-[calc(100vh-80px)] flex flex-col-reverse md:flex-row max-w-6xl gap-x-10 gap-y-5"
+  >
+    <div class="space-y-5 flex-1 flex justify-center items-start flex-col">
+      <h2 class="text-5xl font-bold text-balance">
+        Hi, I am Omar, Creative Technologist
+      </h2>
+      <p class="text-balance">
+        Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet
+        sint. Velit officia consequat duis enim velit mollit. Exercitation
+        veniam consequat sunt nostrud amet.
+      </p>
+      <button class="bg-brick text-white px-5 py-2 rounded-sm"
+        >Download Resume</button
       >
-        {
-          [
-            { title: "Home", link: "/" },
-            { title: "Works", link: "/works" },
-            { title: "Blog", link: "/posts" },
-            { title: "Contact", link: "/contact" },
-          ].map(({ title, link }) => (
-            <li class="font-medium text-xl">
-              <a href={link}>{title}</a>
-            </li>
-          ))
-        }
-      </ul>
-      <div id="menu-icon" class="md:hidden z-10">Menu</div>
-    </nav>
-  </body>
-</html>
+    </div>
+    <div class="md:flex-initial flex-auto flex justify-center items-center">
+      <Image
+        src={AvatarImage}
+        alt="My Photo"
+        width={480}
+        class="size-60 rounded-full bg-secondary object-cover"
+      />
+    </div>
+  </header>
+</Layout>
 
 <script>
   const menuIcon = document.getElementById("menu-icon");
